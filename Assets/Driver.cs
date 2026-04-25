@@ -35,11 +35,11 @@ public class Driver : MonoBehaviour
             steer = -1f;
         }
 
-        float moveAmout = moveSpeed * move * Time.deltaTime;
-        float steerAmout = steerSpeed * steer * Time.deltaTime;
+        float moveAmount = moveSpeed * move * Time.deltaTime;
+        float steerAmount = steerSpeed * steer * Time.deltaTime;
 
-        transform.Rotate(0, 0, steerAmout);
-        transform.Translate(0, moveAmout, 0);
+        transform.Rotate(0, 0, steerAmount);
+        transform.Translate(0, moveAmount, 0);
 
     }
 }
