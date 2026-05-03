@@ -3,7 +3,7 @@ using UnityEngine;
 public class Delivery : MonoBehaviour
 {
     bool hasPackage;
-    [SerializeField] float delay = 1f;
+    [SerializeField] float delay = 0.5f;
 
     void Start()
     {
@@ -21,9 +21,9 @@ public class Delivery : MonoBehaviour
                 Destroy(collision.gameObject, delay);
 
             }
-            else
+            else if (collision.CompareTag("Boost"))
             {
-                GetComponent<ParticleSystem>().Stop();
+                GetComponent<ParticleSystem>().Play();
             }
         }
         if (collision.CompareTag("Customer") && hasPackage)
@@ -31,6 +31,7 @@ public class Delivery : MonoBehaviour
             Debug.Log("Delivered Package");
             hasPackage = false;
             GetComponent<ParticleSystem>().Stop();
+            Destroy(collision.gameObject, delay);
         }
     }
 
